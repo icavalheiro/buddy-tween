@@ -1,0 +1,31 @@
+namespace BuddyTween.Enums
+{
+    public enum EaseType
+    {
+        Linear,
+        Spring,
+        QuadIn,
+        QuadOut,
+        QuadInOut,
+        CubicIn,
+        CubicOut,
+        CubicInOut,
+        BounceIn,
+        BounceOut,
+        ElasticIn,
+        ElasticOut,
+        ElasticInOut,
+        SineIn,
+        SineOut,
+        SineInOut,
+        ExpoIn,
+        ExpoOut,
+        ExpoInOut,
+        CircIn,
+        CircOut,
+        CircInOut,
+        BackIn,
+        BackOut,
+        BackInOut
+    }
+}
