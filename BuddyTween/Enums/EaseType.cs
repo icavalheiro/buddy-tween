@@ -26,6 +26,7 @@ namespace BuddyTween.Enums
         CircInOut,
         BackIn,
         BackOut,
-        BackInOut
+        BackInOut,
+        Custom
     }
 }

@@ -26,7 +26,7 @@ namespace BuddyTween
         private readonly int _updateFrameTimeMs;
         private readonly IEnumerator<float> _enum;
 
-        public TweenInstance(float durationSeconds, float from, float to, EaseType type)
+        private TweenInstance(float durationSeconds, float from, float to, EaseType type, Func<float, float>? customEaseFunction)
         {
             From = from;
             To = to;
@@ -34,8 +34,28 @@ namespace BuddyTween
             CurrentValue = from;
             _updateFrameTimeMs = (int)((1 / (float)Tween.UPDATES_PER_SECOND) * 1000);
             var steps = Tween.UPDATES_PER_SECOND * durationSeconds;
-            _enum = Tween.CreateEnumerator(from, to, (int)steps, type);
+
+            if (type == EaseType.Custom)
+            {
+                if (customEaseFunction == null)
+                    throw new ArgumentException("Custom ease type is \"read only\", please provide a valid custom ease function.");
+
+                _enum = Tween.CreateEnumerator(from, to, (int)steps, customEaseFunction);
+            }
+            else
+            {
+                _enum = Tween.CreateEnumerator(from, to, (int)steps, type);
+            }
         }
+
+        public TweenInstance(float durationSeconds, EaseType type, float from, float to)
+        : this(durationSeconds, from, to, type, null)
+        { }
+
+
+        public TweenInstance(float durationSeconds, Func<float, float> customEaseFunction, float from, float to)
+        : this(durationSeconds, from, to, EaseType.Custom, customEaseFunction)
+        { }
 
         public void Pause()
         {
