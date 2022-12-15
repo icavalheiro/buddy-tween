@@ -4,6 +4,12 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Title>Buddy Tween</Title>
+    <Authors>ivansc</Authors>
+    <Company />
+    <Description>A simple fully managed multithreaded fluent tween library.</Description>
+    <RepositoryType>https://github.com/icavalheiro/buddy-tween</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
 </Project>
